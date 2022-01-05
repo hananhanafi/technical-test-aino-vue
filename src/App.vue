@@ -1,11 +1,11 @@
 <template>
-  <div id="nav" v-if="isLoggedIn">
+  <div id="nav" v-if="isAuthenticated">
     <router-link to="/home">Home</router-link> |
     <router-link to="/profile">Profile</router-link> |
     <router-link to="/user/list">Daftar User</router-link> |
     <router-link to="/" @click="logOut" >Logout</router-link>
   </div>
-  <div id="nav" v-if="!isLoggedIn">
+  <div id="nav" v-if="!isAuthenticated">
     <router-link to="/">Login</router-link> |
     <router-link to="/register">Register</router-link>
   </div>
@@ -15,7 +15,7 @@
 <script>
 export default {
   computed: {
-    isLoggedIn() {
+    isAuthenticated() {
       return this.$store.getters['auth/isAuthenticated'];
     },
   },
